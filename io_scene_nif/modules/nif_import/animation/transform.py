@@ -96,7 +96,7 @@ class TransformAnimation(Animation):
             bone_name = None
             if isinstance(extra, NifFormat.NiStringExtraData):
                 node_name = extra.string_data.decode()
-                bone_name = armature.get_bone_name_for_blender(node_name)
+                bone_name = block_store.get_bone_name_for_blender(node_name)
             # import keyframe controller
             if bone_name in bind_data:
                 niBone_bind_scale, niBone_bind_rot_inv, niBone_bind_trans = bind_data[bone_name]
