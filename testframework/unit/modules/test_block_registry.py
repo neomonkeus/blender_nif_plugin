@@ -1,4 +1,4 @@
-"""Unit testing that the decorator utility"""
+"""Unit testing the block utility"""
 
 # ***** BEGIN LICENSE BLOCK *****
 #
@@ -36,10 +36,10 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 # ***** END LICENSE BLOCK *****
-
 import nose
 
-from io_scene_nif.modules.nif_export import armature
+from io_scene_nif.modules.nif_import.object import block_registry
+from io_scene_nif.modules.nif_export.block_registry import ExportBlockRegistry
 
 B_NPC_L = "NPC XXX [XXX].L"
 B_NPC_R = "NPC XXX [XXX].R"
@@ -52,37 +52,39 @@ N_BIP01_L = "Bip01 L XXX"
 N_BIP01_R = "Bip01 R XXX"
 
 
-class TestArmature:
+class TestNameImport:
 
     def test_nif_to_blender_left_conversion_npc(self):
-        l_side = armature.get_bone_name_for_blender(N_NPC_L)
+        l_side = block_registry.get_bone_name_for_blender(N_NPC_L)
         nose.tools.assert_equals(l_side, B_NPC_L)
 
     def test_nif_to_blender_right_conversion_npc(self):
-        r_side = armature.get_bone_name_for_blender(N_NPC_R)
+        r_side = block_registry.get_bone_name_for_blender(N_NPC_R)
         nose.tools.assert_equals(r_side, B_NPC_R)
 
-    def test_blender_to_nif_name_left_conversion_npc(self):
-        l_side = armature.get_bone_name_for_nif(B_NPC_L)
-        nose.tools.assert_equals(l_side, N_NPC_L)
-
-    def test_blender_to_nif_name_right_conversion_npc(self):
-        r_side = armature.get_bone_name_for_nif(B_NPC_R)
-        nose.tools.assert_equals(r_side, N_NPC_R)
-
     def test_nif_to_blender_left_conversion_bip(self):
-        l_side = armature.get_bone_name_for_blender(N_BIP01_L)
+        l_side = block_registry.get_bone_name_for_blender(N_BIP01_L)
         nose.tools.assert_equals(l_side, B_BIP01_L)
 
     def test_nif_to_blender_right_conversion_bip(self):
-        r_side = armature.get_bone_name_for_blender(N_BIP01_R)
+        r_side = block_registry.get_bone_name_for_blender(N_BIP01_R)
         nose.tools.assert_equals(r_side, B_BIP01_R)
 
+
+class TestNameExport:
+
     def test_blender_to_nif_name_left_conversion_bip(self):
-        l_side = armature.get_bone_name_for_nif(B_BIP01_L)
+        l_side = ExportBlockRegistry.get_bone_name_for_nif(B_BIP01_L)
         nose.tools.assert_equals(l_side, N_BIP01_L)
 
     def test_blender_to_nif_name_right_conversion_bip(self):
-        r_side = armature.get_bone_name_for_nif(B_BIP01_R)
+        r_side = ExportBlockRegistry.get_bone_name_for_nif(B_BIP01_R)
         nose.tools.assert_equals(r_side, N_BIP01_R)
 
+    def test_blender_to_nif_name_left_conversion_npc(self):
+        l_side = ExportBlockRegistry.get_bone_name_for_nif(B_NPC_L)
+        nose.tools.assert_equals(l_side, N_NPC_L)
+
+    def test_blender_to_nif_name_right_conversion_npc(self):
+        r_side = ExportBlockRegistry.get_bone_name_for_nif(B_NPC_R)
+        nose.tools.assert_equals(r_side, N_NPC_R)
