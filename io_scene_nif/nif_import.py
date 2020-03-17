@@ -42,8 +42,8 @@ import bpy
 import pyffi.spells.nif.fix
 from pyffi.formats.nif import NifFormat
 
-from io_scene_nif.io.egm import EGMFile
-from io_scene_nif.io.nif import NifFile
+from io_scene_nif.file_io.egm import EGMFile
+from io_scene_nif.file_io.nif import NifFile
 from io_scene_nif.modules.nif_import.animation import Animation
 from io_scene_nif.modules.nif_import.animation.object import ObjectAnimation
 from io_scene_nif.modules.nif_import.animation.transform import TransformAnimation
