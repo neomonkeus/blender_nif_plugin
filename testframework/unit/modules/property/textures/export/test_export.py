@@ -2,7 +2,7 @@ import nose
 
 import bpy
 
-from io_scene_nif.modules.property import texture
+from io_scene_nif.modules.nif_export.property import texture
 
 
 class TestMaterialSlot:
