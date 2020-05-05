@@ -11,6 +11,9 @@ The setting can be viewed in the Niftools Scene Panel. This is visible in the Sc
 Nif Version
 ===========
 
+**Game**
+    The target game template, this will update the sub fields with the corresponding version.
+
 **Nif Version**
    The base version, generally related to a single game or company.
    * This is currently not very user-friendly, this will be addressed in a future release
