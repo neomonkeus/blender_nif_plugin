@@ -66,8 +66,8 @@ class NifExportOperator(Operator, ExportHelper, NifOperatorCommon):
     scale_correction_export: bpy.props.FloatProperty(
         name="Scale Correction Export",
         description="Changes size of mesh from Blender default to nif default.",
-        default=1.0,
-        min=0.01, max=100.0, precision=2)
+        default=10.0,
+        min=0.01, max=1000.0, precision=2)
 
     # How to export animation.
     animation: bpy.props.EnumProperty(
