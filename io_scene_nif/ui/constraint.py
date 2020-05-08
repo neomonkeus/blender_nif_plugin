@@ -48,10 +48,9 @@ class ConstraintPanel(Panel):
     bl_region_type = 'WINDOW'
     bl_context = "physics"
 
-    def draw_header(self, context):
-        if context.active_object.rigid_body_constraint:
-            return True
-        return False
+    @classmethod
+    def poll(cls, context):
+        return context.active_object.rigid_body_constraint is not None
 
     def draw(self, context):
         layout = self.layout

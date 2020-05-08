@@ -117,6 +117,10 @@ class Constraint:
             # todo [constraints] the following is no longer possible, fixme
             return
 
+            override = bpy.context.copy()
+            override['selected_objects'] = b_obj
+            bpy.ops.rigidbody.constraint_add(override)
+
             # add the constraint as a rigid body joint
             b_constr = b_hkobj.constraints.new('RIGID_BODY_JOINT')
             b_constr.name = b_hkobj.name
@@ -170,8 +174,7 @@ class Constraint:
             # (also see export_nif.py NifImport.export_constraints)
             if isinstance(hkdescriptor, NifFormat.RagdollDescriptor):
                 b_constr.pivot_type = 'CONE_TWIST'
-                # for ragdoll, take z to be the twist axis (central axis of the
-                # cone, that is)
+                # for ragdoll, take z to be the twist axis (central axis of the cone, that is)
                 axis_z = mathutils.Vector((hkdescriptor.twist_a.x,
                                            hkdescriptor.twist_a.y,
                                            hkdescriptor.twist_a.z))
