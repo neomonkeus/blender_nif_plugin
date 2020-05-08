@@ -155,7 +155,7 @@ classes = (
 
     ui.armature.BonePanel,
     ui.armature.ArmaturePanel,
-    ui.collision.CollisionBoundsPanel,
+    ui.collision.CollisionPanel,
     ui.constraint.ConstraintPanel,
     ui.geometry.PartFlagPanel,
     ui.material.MaterialFlagPanel,

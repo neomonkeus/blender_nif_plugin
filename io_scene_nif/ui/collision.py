@@ -50,9 +50,7 @@ class CollisionBoundsPanel(Panel):
 
     @classmethod
     def poll(cls, context):
-        if context.active_object.rigid_body:
-            return True
-        return False
+        return context.active_object.rigid_body is not None
 
     def draw(self, context):
         layout = self.layout
