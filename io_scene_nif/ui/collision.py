@@ -40,7 +40,7 @@
 from bpy.types import Panel
 
 
-class CollisionBoundsPanel(Panel):
+class CollisionPanel(Panel):
     bl_idname = "NIFTOOLS_PT_CollisionBoundsPanel"
     bl_label = "Niftools Collision Bounds"
 
