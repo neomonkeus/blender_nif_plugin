@@ -62,7 +62,7 @@ class NifOperatorCommon:
             ("ERROR", "Error", "Only show errors.", 40),
             ("CRITICAL", "Critical", "Only show extremely critical errors.", 50),
         ),
-        name="Log Level",
+        name="Plugin Log Level",
         description="Blender Nif Plugin log level of verbosity on the console.",
         default="DEBUG")  # TODO [general] Dev config, revert for release
 
@@ -75,7 +75,7 @@ class NifOperatorCommon:
             ("ERROR", "Error", "Only show errors.", 40),
             ("CRITICAL", "Critical", "Only show extremely critical errors.", 50),
         ),
-        name="Log Level",
+        name="Pyffi Log Level",
         description="Pyffi log level of verbosity on the console.",
         default="INFO")
 
