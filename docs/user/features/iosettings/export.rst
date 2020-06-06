@@ -9,17 +9,6 @@ This section explains the import and export settings.
    This is due to the fact that they are ported directly from the old plugin and as such, will functionally remain the same.
 
 
-Scale correction
-----------------
-.. _user-features-iosettings-export-scale:
-
-This value is used to globally re-scale the Blender system of measurement units to the Nif Format units.
-
-* The ratio of a Nif Units (NU) to Blender Units (BU) is 1Bu:0.1Nu. or each NU is about 10x larger than a BU.
-* The Blender Nif Plugin applies a default correction of 10
-* The default setting ensures the imported model fits into the view Blender viewport.
-
-
 Game
 ----
 .. _user-features-iosettings-export-game:

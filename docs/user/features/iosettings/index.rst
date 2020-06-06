@@ -10,6 +10,19 @@ Common Settings
 
 There are some common settings shared between the import and export operators.
 
+
+UI Logging
+----------
+.. _user-ui-logging:
+
+The Blender Nif Plugin outputs the progress of Import/Export execution via the Information View.
+
+There are 3 levels of logging information
+- Information: This is general progress information
+- Warning: An issue that did not cause the execution to fail, but probably something the user needs to resolve, eg missing texture.
+  The full set of warnings will appear at the end in a pop-up window.
+- Error: Logs an issue that caused the execution of the import/export to fail.
+
 Log Level
 ---------
 .. _user-features-iosettings-loglevel:

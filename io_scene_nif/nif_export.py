@@ -280,16 +280,16 @@ class NifExport(NifCommon):
             """
 
             # apply scale
-            if abs(NifOp.props.scale_correction_export) > NifOp.props.epsilon:
-                NifLog.info("Applying scale correction {0}".format(str(NifOp.props.scale_correction_export)))
+            if abs(bpy.context.scene.niftools_scene.scale_correction_export) > NifOp.props.epsilon:
+                NifLog.info("Applying scale correction {0}".format(str(bpy.context.scene.niftools_scene.scale_correction_export)))
                 data.roots = [root_block]
                 toaster = pyffi.spells.nif.NifToaster()
-                toaster.scale = NifOp.props.scale_correction_export
+                toaster.scale = bpy.context.scene.niftools_scene.scale_correction_export
                 pyffi.spells.nif.fix.SpellScale(data=data, toaster=toaster).recurse()
 
                 # also scale egm
                 if EGMData.data:
-                    EGMData.data.apply_scale(NifOp.props.scale_correction_export)
+                    EGMData.data.apply_scale(bpy.context.scene.niftools_scene.scale_correction_export)
 
             # generate mopps (must be done after applying scale!)
             if bpy.context.scene.niftools_scene.game in ('OBLIVION', 'FALLOUT_3', 'SKYRIM'):
