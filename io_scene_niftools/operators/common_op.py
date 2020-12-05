@@ -85,19 +85,37 @@ class CommonDevOperator:
 
 
 class CommonImportScale:
+
+    def get_import_scale(self):
+        return bpy.context.scene.niftools_scene.scale_correction
+
+    def set_import_scale(self, scale):
+        bpy.context.scene.niftools_scene.scale_correction = scale
+
     # Number of nif units per blender unit.
     scale_correction_import: bpy.props.FloatProperty(
         name="Scale Correction Import",
         description="Changes size of mesh to fit onto Blender's default grid.",
+        get=get_import_scale,
+        set=set_import_scale,
         default=0.1,
         min=0.001, max=100.0, precision=2)
 
 
 class CommonExportScale:
+
+    def get_import_scale(self):
+        return 1 / bpy.context.scene.niftools_scene.scale_correction
+
+    def set_import_scale(self, scale):
+        bpy.context.scene.niftools_scene.scale_correction = 1/scale
+
     # Number of blender units per nif unit.
     scale_correction_export: bpy.props.FloatProperty(
         name="Scale Correction Export",
         description="Changes size of mesh from Blender default to nif default.",
+        get=get_import_scale,
+        set=set_import_scale,
         default=10.0,
         min=0.001, max=100.0, precision=2)
 
